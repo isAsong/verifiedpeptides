@@ -177,11 +177,7 @@ export default function ContactClient() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-800">Email</p>
-                  <a
-                    href="mailto:support@veritas-bio-labs.com"
-                    className="text-blue-600 hover:underline"
-                  >
-                    support@veritas-bio-labs.com
+                    support@verifiedpeptides.hk
                   </a>
                 </div>
               </div>
@@ -194,7 +190,7 @@ export default function ContactClient() {
                 <div>
                   <p className="font-medium text-gray-800">WhatsApp</p>
                   <a
-                    href="https://api.whatsapp.com/send?phone=85270460355&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
+                    href="https://api.whatsapp.com/send?phone=85251933716&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
@@ -210,7 +206,7 @@ export default function ContactClient() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-800">Location</p>
-                  <p className="text-gray-600">Veritas Bio Labs Logistics &amp; Distribution Hub</p>
+                  <p className="text-gray-600">verifiedpeptides Logistics &amp; Distribution Hub</p>
                 </div>
               </div>
             </div>
@@ -264,7 +260,7 @@ export default function ContactClient() {
         <p>
           For urgent inquiries, please contact us via{' '}
           <a
-            href="https://api.whatsapp.com/send?phone=85270460355"
+            href="https://api.whatsapp.com/send?phone=85251933716"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
