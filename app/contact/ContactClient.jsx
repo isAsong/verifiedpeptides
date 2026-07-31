@@ -178,7 +178,7 @@ export default function ContactClient() {
                 <div>
                   <p className="font-medium text-gray-800">Email</p>
                     support@verifiedpeptides.hk
-                  </a>
+                
                 </div>
               </div>
 

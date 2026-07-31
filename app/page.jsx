@@ -96,7 +96,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 可选：一个简短的 CTA 或者优势展示 */}
+      {/* 优势展示 */}
       <section className="py-12 container mx-auto px-4 text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-4">Why verifiedpeptides?</h2>

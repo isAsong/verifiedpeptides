@@ -1,5 +1,6 @@
 // app/products/[slug]/page.js
 import { notFound } from 'next/navigation';
+
 import Link from 'next/link';
 import { getProductBySlug } from '@/lib/data/products';
 import ProductImageGallery from '@/components/product/ProductImageGallery';

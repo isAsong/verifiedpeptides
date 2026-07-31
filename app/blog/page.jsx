@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { getAllCategories, getPostsByCategory } from '@/lib/posts';
 import CategoryFilter from '@/components/common/CategoryFilter';
 import Link from 'next/link';
@@ -8,30 +9,26 @@ export const metadata = {
 };
 
 export default function BlogPage({ searchParams }) {
-  // 从 URL 获取分类参数，如 ?category=Research
   const category = searchParams?.category || '';
-  
-  // 获取当前分类下的文章
   const filteredPosts = getPostsByCategory(category);
-  // 获取所有分类（用于筛选组件）
   const categories = getAllCategories();
 
   return (
     <div className="container mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6">Blog</h1>
       
-      {/* 分类筛选 */}
-      <CategoryFilter
-        categories={categories}
-        currentCategory={category}
-        basePath="/blog"
-      />
+      {/* 用 Suspense 包裹 CategoryFilter */}
+      <Suspense fallback={<div className="h-10 w-full bg-gray-100 animate-pulse rounded" />}>
+        <CategoryFilter
+          categories={categories}
+          currentCategory={category}
+          basePath="/blog"
+        />
+      </Suspense>
 
-      {/* 文章列表 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredPosts.map((post) => (
           <article key={post.slug} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
-            {/* 可选配图 */}
             {post.image && (
               <img src={post.image} alt={post.title} className="w-full h-48 object-cover rounded-md mb-4" />
             )}
