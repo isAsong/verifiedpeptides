@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-    title: 'About Us | Veritas Bio Labs',
+    title: 'About Us | verifiedpeptides',
     description:
-        'Veritas Bio Labs is a premier supplier of high-purity research peptides. Learn about our mission, quality standards, and commitment to scientific advancement.',
+        'verifiedpeptides is a premier supplier of high-purity research peptides. Learn about our mission, quality standards, and commitment to scientific advancement.',
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
             {/* 页面标题 */}
             <div className="mb-10 text-center">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                    About Veritas Bio Labs
+                    About verifiedpeptides
                 </h1>
                 <div className="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full" />
             </div>
@@ -22,7 +22,7 @@ export default function AboutPage() {
             {/* 公司简介 */}
             <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                    Veritas Bio Labs is a premier supplier of high-purity research peptides
+                    verifiedpeptides is a premier supplier of high-purity research peptides
                     for laboratory and scientific research. Founded with a commitment to
                     quality and transparency, we provide researchers with reliable
                     compounds that meet the highest standards of purity and consistency.
@@ -71,7 +71,7 @@ export default function AboutPage() {
             {/* 核心价值 */}
             <div className="mt-12">
                 <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
-                    Why Choose Veritas Bio Labs?
+                    Why Choose verifiedpeptides?
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
@@ -156,7 +156,7 @@ export default function AboutPage() {
                     Committed to Scientific Excellence
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">
-                    At Veritas Bio Labs, we understand the critical role that high-quality
+                    At verifiedpeptides, we understand the critical role that high-quality
                     research materials play in advancing scientific knowledge. Every
                     product we deliver is a promise — of purity, of consistency, and of our
                     unwavering commitment to the research community.
