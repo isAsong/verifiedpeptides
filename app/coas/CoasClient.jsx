@@ -1,4 +1,3 @@
-// app/coas/CoasClient.jsx
 'use client';
 
 import { useState } from 'react';
@@ -29,6 +28,8 @@ export default function CoasClient({ months, productSlugMap }) {
                                 {coas.map((coa) => {
                                     const productSlug = productSlugMap[coa.productId];
                                     const productLink = productSlug ? `/products/${productSlug}` : null;
+                                    // 取第一张图片的本地路径
+                                    const imagePath = coa.images?.[0]?.localPath || null;
 
                                     return (
                                         <div
@@ -36,13 +37,13 @@ export default function CoasClient({ months, productSlugMap }) {
                                             className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
                                         >
                                             {/* 图片 - 点击预览 */}
-                                            {coa.imageUrl && (
+                                            {imagePath && (
                                                 <div
                                                     className="relative w-full aspect-[4/3] bg-gray-100 cursor-pointer overflow-hidden"
-                                                    onClick={() => setPreviewImage(coa.imageUrl)}
+                                                    onClick={() => setPreviewImage(imagePath)}
                                                 >
                                                     <Image
-                                                        src={coa.imageUrl}
+                                                        src={imagePath}
                                                         alt={`COA for ${coa.productName}`}
                                                         fill
                                                         className="object-contain hover:scale-105 transition-transform"
@@ -96,7 +97,6 @@ export default function CoasClient({ months, productSlugMap }) {
             </div>
 
             <div className="mt-12 pt-6 border-t border-gray-200 text-sm text-gray-500 text-center">
-                {/* <p>All Certificates of Analysis are for research use only.</p> */}
                 <p className="mt-1">
                     Need a specific COA?{' '}
                     <a
