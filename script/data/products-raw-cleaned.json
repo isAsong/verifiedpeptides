@@ -1,15 +1,4 @@
-// lib/data/products.js
-// 自动生成于 2026-07-31T17:38:19.334Z
-// 共 62 个产品
-
-export const productCategories = [
-  "Growth Hormone",
-  "Research Peptide",
-  "Melanocortin",
-  "Fragments"
-];
-
-export const products = [
+[
   {
     "id": "bpc157",
     "slug": "bpc157",
@@ -508,6 +497,9 @@ export const products = [
       "/images/products/cjc1295-4.jpg"
     ],
     "category": "Growth Hormone",
+    "testResults": {
+      "sterility": "&nbsp;"
+    },
     "faqs": [
       {
         "question": "What is CJC-1295?",
@@ -1550,14 +1542,4 @@ export const products = [
     "category": "Growth Hormone",
     "whatsappNumber": "85270460355"
   }
-];
-
-export const getProductsByCategory = (category) => {
-    if (!category) return products;
-    return products.filter(p => p.category === category);
-};
-
-export const getProductBySlug = (slug) => {
-    const found = products.find(p => p.slug === slug);
-    return found || null;
-};
+]

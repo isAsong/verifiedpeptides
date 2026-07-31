@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品数据报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafc; padding: 30px; color: #1f2937; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 2px solid #e5e7eb; margin-bottom: 30px; }
+        .header h1 { font-size: 28px; font-weight: 700; }
+        .header .badge { background: #3b82f6; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 14px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 30px; }
+        .stat-card { background: #fff; padding: 16px 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+        .stat-card .number { font-size: 26px; font-weight: 700; color: #1f2937; }
+        .stat-card .label { font-size: 13px; color: #6b7280; margin-top: 4px; }
+        .section-title { font-size: 18px; font-weight: 600; margin: 30px 0 16px 0; color: #1f2937; }
+        .chart-card { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #e5e7eb; margin-bottom: 20px; }
+        .table-wrap { overflow-x: auto; background: #fff; border-radius: 10px; border: 1px solid #e5e7eb; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        thead { background: #f1f5f9; }
+        th { padding: 10px 12px; text-align: left; font-weight: 600; color: #475569; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; }
+        tr:hover td { background: #f8fafc; }
+        .footer { margin-top: 30px; text-align: center; font-size: 13px; color: #94a3b8; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>📊 产品数据报告</h1>
+        <span class="badge">2026/8/1 01:31:57</span>
+    </div>
+
+    <!-- 统计卡片 -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="number">62</div><div class="label">总产品数</div></div>
+        <div class="stat-card"><div class="number">62</div><div class="label">有价格</div></div>
+        <div class="stat-card"><div class="number">0</div><div class="label">有规格</div></div>
+        <div class="stat-card"><div class="number">62</div><div class="label">有测试结果</div></div>
+        <div class="stat-card"><div class="number">15</div><div class="label">有FAQ</div></div>
+        <div class="stat-card"><div class="number">62</div><div class="label">有图片</div></div>
+    </div>
+
+    <!-- 价格区间 -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="number">$28.00</div><div class="label">最低价</div></div>
+        <div class="stat-card"><div class="number">$220.00</div><div class="label">最高价</div></div>
+        <div class="stat-card"><div class="number">$76.38</div><div class="label">平均价</div></div>
+    </div>
+
+    <!-- 分类分布 -->
+    <div class="chart-card">
+        <div style="font-weight:600;font-size:16px;margin-bottom:12px;">📁 产品分类分布</div>
+        
+            <div style="display:flex;align-items:center;margin-bottom:6px;">
+                <span style="width:150px;font-size:13px;color:#374151;flex-shrink:0;">Research Peptide</span>
+                <div style="flex:1;height:22px;background:#f3f4f6;border-radius:4px;overflow:hidden;position:relative;">
+                    <div style="width:71.0%;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:4px;transition:width 0.5s;"></div>
+                    <span style="position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:600;color:#fff;">44 (71.0%)</span>
+                </div>
+            </div>
+        
+            <div style="display:flex;align-items:center;margin-bottom:6px;">
+                <span style="width:150px;font-size:13px;color:#374151;flex-shrink:0;">Growth Hormone</span>
+                <div style="flex:1;height:22px;background:#f3f4f6;border-radius:4px;overflow:hidden;position:relative;">
+                    <div style="width:25.8%;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:4px;transition:width 0.5s;"></div>
+                    <span style="position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:600;color:#374151;">16 (25.8%)</span>
+                </div>
+            </div>
+        
+            <div style="display:flex;align-items:center;margin-bottom:6px;">
+                <span style="width:150px;font-size:13px;color:#374151;flex-shrink:0;">Melanocortin</span>
+                <div style="flex:1;height:22px;background:#f3f4f6;border-radius:4px;overflow:hidden;position:relative;">
+                    <div style="width:1.6%;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:4px;transition:width 0.5s;"></div>
+                    <span style="position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:600;color:#374151;">1 (1.6%)</span>
+                </div>
+            </div>
+        
+            <div style="display:flex;align-items:center;margin-bottom:6px;">
+                <span style="width:150px;font-size:13px;color:#374151;flex-shrink:0;">Fragments</span>
+                <div style="flex:1;height:22px;background:#f3f4f6;border-radius:4px;overflow:hidden;position:relative;">
+                    <div style="width:1.6%;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:4px;transition:width 0.5s;"></div>
+                    <span style="position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:600;color:#374151;">1 (1.6%)</span>
+                </div>
+            </div>
+        
+    </div>
+
+    <!-- 数据完整度 -->
+    <div class="chart-card">
+        <div style="font-weight:600;font-size:16px;margin-bottom:12px;">✅ 数据完整度</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+            <div><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#10b981;"></span> 完整 (有价格+规格): 0</div>
+            <div><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#f59e0b;"></span> 部分 (缺字段): 62</div>
+        </div>
+    </div>
+
+    <!-- 产品列表 -->
+    <div style="margin-top:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-weight:600;font-size:18px;">📋 产品明细</div>
+            <span style="font-size:13px;color:#6b7280;">共 62 条</span>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>产品名称</th>
+                        <th>Slug</th>
+                        <th>价格</th>
+                        <th>分类</th>
+                        <th>图片</th>
+                        <th>规格</th>
+                        <th>FAQ</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">1</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">BPC-157 Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">bpc157</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$53.01</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">2</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Blend: BPC-157 TB-500 Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">bpc-157-tb-500-blend</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$107.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">2</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">3</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">GHK-Cu Copper Peptide (100MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ghkcu</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$49.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Blend: Ipamorelin CJC-1295 (No DAC) 20MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ipamorelincjc1295blend</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$65.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">MOTS-C Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">motsc</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$43.01</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">3</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">6</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">TB-500 Peptide (TB4) 10MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">tb500</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$62.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">1</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">7</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Tesamoreln Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">tesa</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$119.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">8</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">PT-141 Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pt141</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$34.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Melanocortin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">9</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Epitalon Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">epitalon</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$33.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">6</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">10</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">NAD+ Peptide (1000MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">nad-500mg</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$119.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">6</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">11</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Blend: KPV GHK-Cu BPC-157 TB-500 (KLOW)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">klow</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$135.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">12</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Ipamorelin Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ipamorelin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$33.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">13</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Blend: GHK-Cu BPC-157 TB-500 Peptide (GLOW)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">glow</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$124.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">6</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">14</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">CJC-1295 DAC Peptide (5MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cjc1295</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$41.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">15</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">AOD-9604 Peptide (5MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">aod9604</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$49.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">16</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">KPV Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">kpv</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">17</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Thymosin Alpha-1 Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">thymosinalpha</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$80.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">18</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Glutathione Peptide (1500MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">glutathione</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$79.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">19</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">DSIP Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">dsip</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$49.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">20</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">CJC-1295 No DAC Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cjc1295-no-dac</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$68.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">21</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">5-Amino 1MQ Peptide (50MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">5-amino-1mq</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$89.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">22</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pinealon Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pinealon</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">23</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Thymalin Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">thymalin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$36.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">24</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">IGF-1 LR3 Peptide (1MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">igf-1-lr3</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$65.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">25</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Frag(17-23) TB-500 Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">tb500-frag17-23</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$45.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Fragments</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">26</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">N-Acetyl Selank Peptide (30MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">n-acetyl-selank</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$89.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">27</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Kisspeptin Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">kisspeptin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$60.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">28</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Cartalax Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cartalax</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">29</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pack: Ipamorelin + Tesamoreln</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ipamorelin-tesa-pack</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$172.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">30</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">MT II Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">mt2</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$35.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">31</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pack: CJC-1295 DAC + Ipamorelin</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cjc1295-ipamorelin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$94.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">32</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Powder: GHK-Cu 1000MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ghkcu-powder</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">33</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Prostamax Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">prostamax</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">34</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">ARA-290 Peptide (12MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ara-290</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$65.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">35</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">N-Acetyl Semx Peptide</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">n-acetyl-semx</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$89.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">36</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">SNAP-8 Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">snap8</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$33.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">37</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pack: Epitalon + Thymalin</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">epitalon-thymalin-pack</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$62.10</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">38</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">L-Carnitine 400MG/ML</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">lcarnitine</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$53.01</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">39</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">MT I Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">mt1</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$35.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">40</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Oxytocin Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">oxytocin</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$35.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">41</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Blend: TB-500 BPC-157 KPV</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">tb500-bpc157-kpv</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$149.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">42</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">LL-37 Peptide (5MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ll37</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$65.70</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">43</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pack: NAD+ Glutathione</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">glutathione-nad</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$180.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">44</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Vesugen Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">vesugen</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$60.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">45</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">GHR -2 10MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">g2</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$30.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">46</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Testagen Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">testagen</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">47</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Vilon Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">vilon</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$60.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">48</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">GHR-6 10MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">g6</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$28.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">49</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Cardiogen Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cardiogen</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">50</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">P21 Peptide 10MG (P021)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">p21</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$119.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">51</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Ovagen Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">ovagen</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">52</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">FOXO4-DRI Peptide (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">foxo4dri</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$220.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">53</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Chonluten Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">chonluten</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">54</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Cortagen Peptide (20MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">cortagen</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$55.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">55</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pal Tetrapeptide-7 (Matrixyl 3000) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pal-tetrapeptide-7</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$104.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">56</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pal-GHK (Matrixyl 3000) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pal-ghk</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$99.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">57</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pal Tripeptide-38 (Matrixyl Synthe6) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pal-tripeptide-38</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$175.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">58</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Acetyl Hexapeptide-8 (Argireline) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">acetyl-hexapeptide-8</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$99.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">59</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Pal Pentapeptide-4 (Matrixyl) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">pal-pentapeptide-4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$104.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">60</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Acetyl Octapeptide-3 (SNAP 8) 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">acetyl-octapeptide-3</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$126.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">61</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">SYN-AKE 200MG</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">syn-ake</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$85.00</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Research Peptide</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">62</td>
+                <td style="padding:8px 12px;font-size:13px;font-weight:500;color:#1f2937;">
+                    <a href="#" target="_blank" style="color:#3b82f6;text-decoration:none;">Adamax (10MG)</a>
+                </td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">adamax</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">$75.99</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">Growth Hormone</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">4</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;font-size:13px;color:#374151;">0</td>
+                <td style="padding:8px 12px;">
+                    <span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:500;background:#f59e0b20;color:#f59e0b;">⚠️ 部分</span>
+                </td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">生成于 2026/8/1 01:31:57 | 数据来源: products-raw.json</div>
+</div>
+</body>
+</html>
