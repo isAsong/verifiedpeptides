@@ -25,7 +25,7 @@ export default function Footer() {
               <Link href="/">
                 <Image
                   src="/images/common/logo.png"
-                  alt="Veritas Bio Labs"
+                  alt="verifiedpeptides"
                   width={160}
                   height={40}
                   className="brightness-0 invert"
@@ -69,7 +69,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>Veritas Bio Labs Logistics & Distribution Hub</span>
+                <span>verifiedpeptides Logistics & Distribution Hub</span>
               </div>
             </div>
           </div>
@@ -93,11 +93,8 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Media Inquiries</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="mailto:support@veritas-bio-labs.com"
-                  className="hover:text-white transition-colors"
-                >
-                  support@veritas-bio-labs.com
+                
+                  support@verifiedpeptides.hk
                 </a>
               </li>
             </ul>
@@ -108,11 +105,8 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Investor Inquiries</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="mailto:support@veritas-bio-labs.com"
-                  className="hover:text-white transition-colors"
-                >
-                  support@veritas-bio-labs.com
+                
+                  support@verifiedpeptides.hk
                 </a>
               </li>
             </ul>
@@ -122,7 +116,7 @@ export default function Footer() {
         {/* 版权行 */}
         <div className="pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-2">
           <span>
-            Copyright © {currentYear} Veritas Bio Labs. All Rights Reserved.
+            Copyright © {currentYear} verifiedpeptides. All Rights Reserved.
           </span>
           <span className="text-xs">
             Products are for research and laboratory use only.
