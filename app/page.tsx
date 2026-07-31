@@ -5,7 +5,7 @@ import { getAllPosts } from '@/lib/posts';
 import ProductCard from '@/components/product/ProductCard';
 
 export const metadata = {
-  title: 'Home - Veritas Bio Labs',
+  title: 'Home - verifiedpeptides',
   description: 'High-purity research peptides for laboratory and scientific research. Shop Tirzepatide, Retatrutide, Semaglutide and more.',
 };
 
@@ -21,14 +21,14 @@ export default function HomePage() {
       <section className="relative w-full h-64 md:h-96 lg:h-[32rem] overflow-hidden">
         <Image
           src="/images/banner-home.jpg"
-          alt="Veritas Bio Labs - Research Peptides"
+          alt="verifiedpeptides - Research Peptides"
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center px-4">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Veritas Bio Labs
+            verifiedpeptides
           </h1>
           <p className="text-lg md:text-xl max-w-2xl">
             High-purity research peptides for breakthrough science
@@ -99,7 +99,7 @@ export default function HomePage() {
       {/* 可选：一个简短的 CTA 或者优势展示 */}
       <section className="py-12 container mx-auto px-4 text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4">Why Veritas Bio Labs?</h2>
+          <h2 className="text-2xl font-bold mb-4">Why verifiedpeptides?</h2>
           <p className="text-gray-600">
             We provide rigorously tested, high-purity peptides with full Certificates of Analysis (COAS) for every batch.
             Our products are trusted by researchers worldwide for consistency and reliability.
