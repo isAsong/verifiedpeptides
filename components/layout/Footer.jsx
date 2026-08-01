@@ -93,7 +93,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Media Inquiries</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                
+                <a>
                   support@verifiedpeptides.hk
                 </a>
               </li>
@@ -105,7 +105,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Investor Inquiries</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                
+                <a>
                   support@verifiedpeptides.hk
                 </a>
               </li>
@@ -123,6 +123,6 @@ export default function Footer() {
           </span>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }
