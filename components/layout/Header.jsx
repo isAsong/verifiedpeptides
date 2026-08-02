@@ -7,6 +7,7 @@ import { useRouter, usePathname } from 'next/navigation';
 const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
+    { label: 'peptide calculator', href: '/calculator' }, // ← 新增
     { label: 'Blog', href: '/blog' },
     { label: 'COAS', href: '/coas' },
     { label: 'About', href: '/about' },
@@ -134,9 +135,8 @@ export default function Header() {
                         <Link
                             key={item.label}
                             href={item.href}
-                            className={`block py-2 text-sm border-b hover:text-blue-600 ${
-                                isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
-                            }`}
+                            className={`block py-2 text-sm border-b hover:text-blue-600 ${isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
+                                }`}
                         >
                             {item.label}
                         </Link>
@@ -155,9 +155,8 @@ export default function Header() {
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`text-sm font-medium ${
-                                    isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
-                                } hover:text-blue-600`}
+                                className={`text-sm font-medium ${isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
+                                    } hover:text-blue-600`}
                             >
                                 {item.label}
                             </Link>
@@ -233,13 +232,12 @@ export default function Header() {
                                         >
                                             <div className="flex items-start gap-3">
                                                 <span
-                                                    className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${
-                                                        item.type === 'Product'
+                                                    className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${item.type === 'Product'
                                                             ? 'bg-blue-100 text-blue-700'
                                                             : item.type === 'Article'
-                                                            ? 'bg-purple-100 text-purple-700'
-                                                            : 'bg-green-100 text-green-700'
-                                                    }`}
+                                                                ? 'bg-purple-100 text-purple-700'
+                                                                : 'bg-green-100 text-green-700'
+                                                        }`}
                                                 >
                                                     {item.type}
                                                 </span>
