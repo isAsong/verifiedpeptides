@@ -1,48 +1,43 @@
 // components/common/CategoryFilter.jsx
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export default function CategoryFilter({ categories, currentCategory, basePath }) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+export default function CategoryFilter({ categories, currentCategory }) {
+  const pathname = usePathname();
 
-  const handleSelect = (category) => {
-    // 构建新的查询参数
-    const params = new URLSearchParams(searchParams);
-    if (category) {
-      params.set('category', category);
-    } else {
-      params.delete('category');
-    }
-    // 跳转到新 URL
-    router.push(`${basePath}?${params.toString()}`);
+  const getCategoryUrl = (category) => {
+    const params = new URLSearchParams();
+    if (category) params.set('category', category);
+    const query = params.toString();
+    return query ? `${pathname}?${query}` : pathname;
   };
 
   return (
     <div className="flex flex-wrap gap-2 mb-6">
-      <button
-        onClick={() => handleSelect('')}
-        className={`px-4 py-2 text-sm rounded-full transition-colors ${
+      <Link
+        href={pathname}
+        className={`px-4 py-2 rounded-full text-sm font-medium transition ${
           !currentCategory
-            ? 'bg-blue-600 text-white hover:bg-blue-700'
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            ? 'bg-blue-600 text-white'
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
         }`}
       >
         All
-      </button>
+      </Link>
       {categories.map((cat) => (
-        <button
+        <Link
           key={cat}
-          onClick={() => handleSelect(cat)}
-          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+          href={getCategoryUrl(cat)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
             currentCategory === cat
-              ? 'bg-blue-600 text-white hover:bg-blue-700'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >
           {cat}
-        </button>
+        </Link>
       ))}
     </div>
   );

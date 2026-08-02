@@ -1,44 +1,74 @@
-// app/coas/page.jsx
-import Link from 'next/link';
-import Image from 'next/image';
-import { getAllMonths, getCoasByMonth, formatMonth, formatDate } from '@/lib/data/coas';
-import { products } from '@/lib/data/products';
-import CoasClient from './CoasClient';  // 稍后创建
+// app/products/page.jsx
+import { productCategories, getProductsByCategory, products } from '@/lib/data/products';
+import ProductCard from '@/components/product/ProductCard';
+import CategoryFilter from '@/components/common/CategoryFilter';
+import Pagination from '@/components/common/Pagination';
+import { Suspense } from 'react';
 
-// ✅ metadata 在服务端组件中正常工作
 export const metadata = {
-  title: 'COAS - Certificates of Analysis | Veritas Bio Labs',
-  description: 'Browse our archive of published peptide Certificates of Analysis (COAS) with purity, weight, and batch details.',
+  title: 'Products | Veritas Bio Labs',
+  description: 'Browse our catalog of high-purity research peptides.',
 };
 
-export default function CoasPage() {
-  const months = getAllMonths();
+const PRODUCTS_PER_PAGE = 9;
 
-  // 构建产品 slug 映射（用于跳转）
-  const productSlugMap = {};
-  products.forEach(p => {
-    productSlugMap[p.id] = p.slug;
-  });
+export default function ProductsPage({ searchParams }) {
+  // 获取分类和页码参数
+  const category = searchParams?.category || '';
+  const page = parseInt(searchParams?.page) || 1;
 
-  // 把数据传给客户端组件
+  // 根据分类筛选（若无分类则返回全部）
+  const filteredProducts = category
+    ? products.filter(p => p.category === category)
+    : products;
+
+  // 计算分页
+  const totalItems = filteredProducts.length;
+  const totalPages = Math.ceil(totalItems / PRODUCTS_PER_PAGE);
+  const currentPage = Math.min(Math.max(page, 1), totalPages || 1);
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const endIndex = startIndex + PRODUCTS_PER_PAGE;
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+  // 构建基础 URL（保留分类参数）
+  const basePath = `/products?category=${encodeURIComponent(category)}`;
+
   return (
-    <div className="container mx-auto px-4 py-10 max-w-6xl">
-      {/* 页面标题 - 服务端渲染 */}
-      <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Certificates of Analysis
-        </h1>
-        <p className="mt-2 text-gray-600">
-          Browse our archive of published peptide COAS. All products are tested
-          for purity, weight, and quality assurance.
-        </p>
-        <p className="mt-1 text-sm text-gray-500">
-          {months.length} months of test results available
-        </p>
-      </div>
+    <div className="container mx-auto px-4 py-10">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        Our Products
+      </h1>
 
-      {/* ✅ 客户端交互部分交给子组件 */}
-      <CoasClient months={months} productSlugMap={productSlugMap} />
+      <Suspense fallback={<div className="h-10 w-full bg-gray-200 animate-pulse rounded" />}>
+        <CategoryFilter
+          categories={productCategories}
+          currentCategory={category}
+          basePath="/products"
+        />
+      </Suspense>
+
+      {paginatedProducts.length === 0 ? (
+        <div className="text-center py-16">
+          <p className="text-gray-500">No products found.</p>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            {paginatedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          {/* 分页组件 */}
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              basePath={basePath}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 }
