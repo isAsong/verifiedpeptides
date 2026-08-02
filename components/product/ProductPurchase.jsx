@@ -4,7 +4,7 @@
 export default function ProductPurchase({ product }) {
     const { name, whatsappNumber } = product;
 
-    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber || '85270460355'}&text=Hello%2C%20I%27m%20interested%20in%20${encodeURIComponent(name)}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber || '85251933716'}&text=Hello%2C%20I%27m%20interested%20in%20${encodeURIComponent(name)}`;
 
     return (
         <div className="mt-6">
