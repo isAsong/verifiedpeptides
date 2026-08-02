@@ -15,40 +15,40 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-14 pb-8">
+    <footer className="bg-white text-slate-700 pt-14 pb-8 shadow-[0_-8px_30px_rgba(15,23,42,0.04)]">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 border-b border-slate-800 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 border-b border-slate-200 pb-10">
           <div className="space-y-6">
             <Link href="/">
               <Image
-                src="/images/common/logo.png"
+                src="/images/logo.jpg"
                 alt="verifiedpeptides"
-                width={160}
-                height={40}
-                className="brightness-0 invert"
+                width={50}
+                height={50}
+                className="h-auto w-auto"
               />
             </Link>
-            <p className="max-w-sm text-sm text-slate-400 leading-relaxed">
+            <p className="max-w-sm text-sm text-slate-600 leading-relaxed">
               Verified peptides with lab-grade documentation, trusted COAs, and responsive support for research teams.
             </p>
-            <div className="space-y-3 text-sm text-slate-400">
+            <div className="space-y-3 text-sm text-slate-600">
               <div className="flex items-start gap-3">
-                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
                   ✉️
                 </span>
                 <div>
-                  <p className="font-semibold text-slate-100">Contact</p>
-                  <a href="mailto:support@verifiedpeptides.vip" className="hover:text-white transition-colors">
+                  <p className="font-semibold text-slate-900">Contact</p>
+                  <a href="mailto:support@verifiedpeptides.vip" className="hover:text-blue-600 transition-colors">
                     support@verifiedpeptides.vip
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
                   📍
                 </span>
                 <div>
-                  <p className="font-semibold text-slate-100">Location</p>
+                  <p className="font-semibold text-slate-900">Location</p>
                   <p>Logistics & Distribution Hub</p>
                 </div>
               </div>
@@ -56,12 +56,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-5">Quick links</h3>
-            <ul className="space-y-3 text-sm text-slate-400">
+            <h3 className="text-slate-900 font-semibold mb-5">Quick links</h3>
+            <ul className="space-y-3 text-sm text-slate-600">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="inline-flex items-center gap-2 hover:text-white transition-colors">
-                    <span className="text-cyan-300">•</span>
+                  <Link href={link.href} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
+                    <span className="text-blue-600">•</span>
                     {link.label}
                   </Link>
                 </li>
@@ -70,21 +70,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-5">Media inquiries</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              For press or partnership questions, reach out via email and we will respond promptly.
-            </p>
-            <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-cyan-300 hover:text-white transition-colors">
-              support@verifiedpeptides.vip
-            </a>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-5">Investor inquiries</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <h3 className="text-slate-900 font-semibold mb-5">Investor inquiries</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
               Contact our team for investor relations and corporate information.
             </p>
-            <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-cyan-300 hover:text-white transition-colors">
+            <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">
               support@verifiedpeptides.vip
             </a>
           </div>
