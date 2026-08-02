@@ -15,7 +15,7 @@ export default function HomePage() {
 
   // 信任标识数据
   const trustBadges = [
-    { icon: '🏆', label: '16+ Years Experience', desc: 'Trusted peptide manufacturer with decades of expertise' },
+    { icon: '🏆', label: '14+ Years Experience', desc: 'Trusted peptide manufacturer with decades of expertise' },
     { icon: '🔬', label: '99%+ Purity', desc: 'Rigorously tested by independent third-party labs' },
     { icon: '📋', label: 'Full COA Disclosure', desc: 'Every batch comes with complete Certificates of Analysis' },
     { icon: '🌍', label: 'Global Shipping', desc: 'Fast, discreet delivery to researchers worldwide' },
