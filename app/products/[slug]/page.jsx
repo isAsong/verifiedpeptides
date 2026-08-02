@@ -49,7 +49,11 @@ export default async function ProductDetailPage({ params }) {
       {/* 主内容区：图片 + 信息 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* 左侧：图片 */}
-        <ProductImageGallery images={images} productName={product.name} />
+        <ProductImageGallery
+          images={product.images}
+          productName={product.name}
+          autoPlayInterval={4000} // 可选，默认3000ms
+        />
 
         {/* 右侧：产品信息 + FAQ摘要 + 描述 + 按钮 */}
         <div>
