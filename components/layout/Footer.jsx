@@ -15,72 +15,53 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-12 pb-6">
+    <footer className="bg-slate-950 text-slate-300 pt-14 pb-8">
       <div className="container mx-auto px-4">
-        {/* 主体网格 */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
-          {/* 1. Logo + 联系信息 */}
-          <div className="col-span-1">
-            <div className="mb-4">
-              <Link href="/">
-                <Image
-                  src="/images/common/logo.png"
-                  alt="verifiedpeptides"
-                  width={160}
-                  height={40}
-                  className="brightness-0 invert"
-                />
-              </Link>
-            </div>
-            <div className="space-y-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 border-b border-slate-800 pb-10">
+          <div className="space-y-6">
+            <Link href="/">
+              <Image
+                src="/images/common/logo.png"
+                alt="verifiedpeptides"
+                width={160}
+                height={40}
+                className="brightness-0 invert"
+              />
+            </Link>
+            <p className="max-w-sm text-sm text-slate-400 leading-relaxed">
+              Verified peptides with lab-grade documentation, trusted COAs, and responsive support for research teams.
+            </p>
+            <div className="space-y-3 text-sm text-slate-400">
               <div className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span>Email/Form Inquiry Only</span>
+                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                  ✉️
+                </span>
+                <div>
+                  <p className="font-semibold text-slate-100">Contact</p>
+                  <a href="mailto:support@verifiedpeptides.vip" className="hover:text-white transition-colors">
+                    support@verifiedpeptides.vip
+                  </a>
+                </div>
               </div>
               <div className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span>verifiedpeptides Logistics & Distribution Hub</span>
+                <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                  📍
+                </span>
+                <div>
+                  <p className="font-semibold text-slate-100">Location</p>
+                  <p>Logistics & Distribution Hub</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 2. Useful Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">USEFUL LINKS</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-semibold mb-5">Quick links</h3>
+            <ul className="space-y-3 text-sm text-slate-400">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="hover:text-white transition-colors">
+                  <Link href={link.href} className="inline-flex items-center gap-2 hover:text-white transition-colors">
+                    <span className="text-cyan-300">•</span>
                     {link.label}
                   </Link>
                 </li>
@@ -88,41 +69,32 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 3. Media Inquiries */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Media Inquiries</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a>
-                  support@verifiedpeptides.hk
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-white font-semibold mb-5">Media inquiries</h3>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              For press or partnership questions, reach out via email and we will respond promptly.
+            </p>
+            <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-cyan-300 hover:text-white transition-colors">
+              support@verifiedpeptides.vip
+            </a>
           </div>
 
-          {/* 4. Investor Inquiries */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Investor Inquiries</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a>
-                  support@verifiedpeptides.hk
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-white font-semibold mb-5">Investor inquiries</h3>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Contact our team for investor relations and corporate information.
+            </p>
+            <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-cyan-300 hover:text-white transition-colors">
+              support@verifiedpeptides.vip
+            </a>
           </div>
         </div>
 
-        {/* 版权行 */}
-        <div className="pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-2">
-          <span>
-            Copyright © {currentYear} verifiedpeptides. All Rights Reserved.
-          </span>
-          <span className="text-xs">
-            Products are for research and laboratory use only.
-          </span>
+        <div className="pt-8 text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center gap-3">
+          <span>© {currentYear} verifiedpeptides. All rights reserved.</span>
+          <span className="text-xs text-slate-500">Products are for research and laboratory use only.</span>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 }
