@@ -1,6 +1,6 @@
 ---
-title: 'Understanding Tirzepatide: Dual GIP/GLP-1 Mechanism'
-slug: 'understanding-tirzepatide-mechanism'
+title: 'ccc'
+slug: 'bbb'
 category: 'Research'
 tags: ['Tirzepatide', 'GLP-1', 'Metabolic']
 publishedAt: '2026-07-20'
