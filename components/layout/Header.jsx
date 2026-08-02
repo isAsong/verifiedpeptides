@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation'; // ✅ 新增 usePathname
+import { useRouter } from 'next/navigation';
 
 const navItems = [
     { label: 'Home', href: '/' },
@@ -14,9 +14,6 @@ const navItems = [
 ];
 
 export default function Header() {
-    const router = useRouter();
-    const pathname = usePathname(); // ✅ 获取当前路径
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -25,17 +22,7 @@ export default function Header() {
     const [isLoading, setIsLoading] = useState(false);
     const searchRef = useRef(null);
     const inputRef = useRef(null);
-
-    // 判断导航项是否激活（精确匹配或子路径匹配）
-    const isActive = (href) => {
-        if (href === '/') {
-            return pathname === '/';
-        }
-        // 对于其他路径，匹配以 href 开头（如 /products 匹配 /products/xxx）
-        return pathname.startsWith(href);
-    };
-
-    // ... 其余 hooks（search 逻辑保持不变） ...
+    const router = useRouter();
 
     // 加载所有可搜索数据（只加载一次）
     useEffect(() => {
@@ -99,6 +86,7 @@ export default function Header() {
     const openSearch = () => {
         console.log('Search icon clicked');
         setIsSearchOpen(true);
+        // 延迟聚焦，确保输入框渲染
         setTimeout(() => inputRef.current?.focus(), 50);
     };
 
@@ -116,11 +104,11 @@ export default function Header() {
     return (
         <header className="relative">
             {/* Mobile Header */}
-            <div className="md:hidden bg-white border-b px-4 py-3 flex items-center justify-between">
-                <Link href="/" className="flex items-center">
-                    <img src="/images/common/logo_wap.png" alt="Veritas" className="h-8" />
+            <div className="md:hidden flex items-center justify-start border-b border-slate-200 bg-white px-4 py-3">
+                <Link href="/" className="mr-4 flex items-center flex-none">
+                    <img src="/images/logo.jpg" alt="Veritas" className="h-12 w-auto object-contain" />
                 </Link>
-                <div className="flex items-center gap-3">
+                <div className="ml-auto flex items-center gap-3">
                     <button onClick={openSearch}>
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -137,13 +125,7 @@ export default function Header() {
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-b px-4 py-2">
                     {navItems.map((item) => (
-                        <Link
-                            key={item.label}
-                            href={item.href}
-                            className={`block py-2 text-sm border-b hover:text-blue-600 ${
-                                isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
-                            }`}
-                        >
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm text-gray-700 border-b hover:text-blue-600">
                             {item.label}
                         </Link>
                     ))}
@@ -151,19 +133,17 @@ export default function Header() {
             )}
 
             {/* PC Header */}
-            <div className="hidden md:block bg-white border-b">
-                <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-                    <Link href="/" className="flex-shrink-0">
-                        <img src="/images/common/logo.png" alt="Veritas" className="h-10" />
+            <div className="hidden md:block border-b border-slate-200 bg-white">
+                <div className="container mx-auto flex items-center justify-start px-4 py-3">
+                    <Link href="/" className="mr-6 flex-shrink-0">
+                        <img src="/images/logo.jpg" alt="Veritas" className="h-16 w-auto object-contain" />
                     </Link>
-                    <nav className="flex items-center gap-8">
+                    <nav className="ml-auto flex items-center gap-8">
                         {navItems.map((item) => (
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`text-sm font-medium ${
-                                    isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
-                                } hover:text-blue-600 transition-colors`}
+                                className={`text-sm font-medium ${item.label === 'Home' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600`}
                             >
                                 {item.label}
                             </Link>
@@ -177,7 +157,7 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* 搜索弹窗（保持不变） */}
+            {/* ===== 搜索弹窗（覆盖层） ===== */}
             {isSearchOpen && (
                 <div
                     className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-start justify-center pt-20 md:pt-32"
@@ -188,6 +168,7 @@ export default function Header() {
                         className="bg-white w-full max-w-2xl mx-4 rounded-xl shadow-2xl overflow-hidden"
                         onClick={(e) => e.stopPropagation()}
                     >
+                        {/* 搜索输入框 */}
                         <div className="flex items-center border-b border-gray-200 px-4 py-2">
                             <svg className="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -218,6 +199,7 @@ export default function Header() {
                             </button>
                         </div>
 
+                        {/* 搜索结果列表 */}
                         <div className="max-h-96 overflow-y-auto">
                             {isLoading && (
                                 <div className="p-4 text-center text-gray-500 text-sm">Loading...</div>
@@ -234,14 +216,14 @@ export default function Header() {
                                             onClick={() => handleResultClick(item.url)}
                                         >
                                             <div className="flex items-start gap-3">
+                                                {/* 类型标签 */}
                                                 <span
-                                                    className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${
-                                                        item.type === 'Product'
+                                                    className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${item.type === 'Product'
                                                             ? 'bg-blue-100 text-blue-700'
                                                             : item.type === 'Article'
                                                                 ? 'bg-purple-100 text-purple-700'
                                                                 : 'bg-green-100 text-green-700'
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {item.type}
                                                 </span>
@@ -258,6 +240,7 @@ export default function Header() {
                             )}
                         </div>
 
+                        {/* 底部提示 */}
                         <div className="px-4 py-2 bg-gray-50 text-xs text-gray-400 border-t border-gray-100 flex justify-between">
                             <span>Type to search</span>
                             <span>ESC to close</span>
