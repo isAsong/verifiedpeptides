@@ -1,18 +1,17 @@
-// components/layout/FloatingContact.jsx
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { WHATSAPP_MESSAGES, getWhatsAppLink } from '@/lib/config';
 
-// 默认联系人数据（可替换）
+// 默认联系人数据
 const defaultContacts = [
   {
     id: 1,
     name: 'Savannah | Verified Peptides',
     phone: '85251933716',
-    avatar: '/images/avatar/85251933716.png',
+    avatar: '/images/avatar/85294506791.png',
   },
-
 ];
 
 export default function FloatingContact({ contacts = defaultContacts }) {
@@ -35,11 +34,7 @@ export default function FloatingContact({ contacts = defaultContacts }) {
   // 切换展开/收起
   const toggle = () => setIsOpen(!isOpen);
 
-  // 获取 WhatsApp 链接（国际格式，去掉 + 号）
-  const getWhatsAppLink = (phone) => {
-    const clean = phone.replace(/\D/g, ''); // 只保留数字
-    return `https://api.whatsapp.com/send?phone=${clean}`;
-  };
+
 
   return (
     <div ref={containerRef} className="fixed bottom-6 right-6 z-50">
@@ -87,7 +82,6 @@ export default function FloatingContact({ contacts = defaultContacts }) {
         className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:bg-green-600 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400"
         aria-label="Contact us on WhatsApp"
       >
-        {/* WhatsApp SVG 图标（本地或内联） */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

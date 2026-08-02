@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
+import { getWhatsAppLink,WHATSAPP_NUMBER } from '@/lib/config';
 export default function CalculatorClient() {
   // --- 表单状态 ---
   const [syringeVolume, setSyringeVolume] = useState(1); // ml
@@ -97,7 +97,7 @@ export default function CalculatorClient() {
 
   // --- WhatsApp 链接 ---
   const whatsappLink =
-    'https://api.whatsapp.com/send?phone=85270460355&text=Hello%2C%20I%20need%20help%20with%20peptide%20reconstitution%20calculation';
+    getWhatsAppLink();
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">

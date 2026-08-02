@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-
+import { getWhatsAppLink,WHATSAPP_NUMBER } from '@/lib/config';
 export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: '',
@@ -190,12 +190,12 @@ export default function ContactClient() {
                 <div>
                   <p className="font-medium text-gray-800">WhatsApp</p>
                   <a
-                    href="https://api.whatsapp.com/send?phone=85251933716&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
+                    href={getWhatsAppLink('')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    +852 7046 0355
+                    {`+${WHATSAPP_NUMBER}`}
                   </a>
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function ContactClient() {
         <p>
           For urgent inquiries, please contact us via{' '}
           <a
-            href="https://api.whatsapp.com/send?phone=85251933716"
+            href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"

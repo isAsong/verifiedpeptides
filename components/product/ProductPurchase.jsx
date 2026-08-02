@@ -1,10 +1,10 @@
 // components/product/ProductPurchase.jsx
 'use client';
-
+import { getWhatsAppLink,WHATSAPP_NUMBER } from '@/lib/config';
 export default function ProductPurchase({ product }) {
     const { name, whatsappNumber } = product;
 
-    const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber || '85251933716'}&text=Hello%2C%20I%27m%20interested%20in%20${encodeURIComponent(name)}`;
+    const whatsappLink = getWhatsAppLink(`Hello, I'm interested in ${name}.`);
 
     return (
         <div className="mt-6">
