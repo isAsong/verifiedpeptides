@@ -8,16 +8,11 @@ import Image from 'next/image';
 const defaultContacts = [
   {
     id: 1,
-    name: 'Sarah | Veritas Bio Labs',
-    phone: '85270460355',
-    avatar: '/images/common/avatar-sarah.png',
+    name: 'Savannah | Verified Peptides',
+    phone: '85251933716',
+    avatar: '/images/avatar/85251933716.png',
   },
-  {
-    id: 2,
-    name: 'Dr. Elena | Veritas Bio Labs',
-    phone: '85244981846',
-    avatar: '/images/common/avatar-elena.png',
-  },
+
 ];
 
 export default function FloatingContact({ contacts = defaultContacts }) {
