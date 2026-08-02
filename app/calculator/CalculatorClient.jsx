@@ -2,7 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getWhatsAppLink,WHATSAPP_NUMBER } from '@/lib/config';
+import { getWhatsAppLink, WHATSAPP_NUMBER } from '@/lib/config';
+
 export default function CalculatorClient() {
   // --- 表单状态 ---
   const [syringeVolume, setSyringeVolume] = useState(1); // ml
@@ -67,16 +68,16 @@ export default function CalculatorClient() {
     const displayTicks = Math.min(ticksNeeded, TOTAL_TICKS);
 
     setResult({
-      concentration: concentration, // mcg/ml
-      doseVolumeMl: doseVolumeMl,
-      ticksNeeded: ticksNeeded,
-      displayTicks: displayTicks,
-      mcgPerTick: mcgPerTick,
-      warning: warning,
-      syringeCapacityMl: syringeCapacityMl,
-      totalPeptideMcg: totalPeptideMcg,
+      concentration, // mcg/ml
+      doseVolumeMl,
+      ticksNeeded,
+      displayTicks,
+      mcgPerTick,
+      warning,
+      syringeCapacityMl,
+      totalPeptideMcg,
       totalWaterMl: bacteriostaticWater,
-      volumePerTick: volumePerTick,
+      volumePerTick,
     });
   };
 
@@ -96,8 +97,7 @@ export default function CalculatorClient() {
   };
 
   // --- WhatsApp 链接 ---
-  const whatsappLink =
-    getWhatsAppLink();
+  const whatsappLink = getWhatsAppLink(WHATSAPP_NUMBER);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -235,7 +235,14 @@ export default function CalculatorClient() {
             {result ? (
               <div className="space-y-6">
                 {/* 注射器可视化 */}
-
+                <SyringeVisualizer
+                  ticksNeeded={result.displayTicks}
+                  totalTicks={TOTAL_TICKS}
+                  syringeVolume={result.syringeCapacityMl}
+                  warning={result.warning}
+                  mcgPerTick={result.mcgPerTick}
+                  doseVolumeMl={result.doseVolumeMl}
+                />
 
                 {/* 数值结果 */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -327,3 +334,104 @@ export default function CalculatorClient() {
   );
 }
 
+// ============================================================
+// 注射器可视化组件（带防御性检查）
+// ============================================================
+function SyringeVisualizer({
+  ticksNeeded = 0,
+  totalTicks = 100,
+  syringeVolume = 1,
+  warning = false,
+  mcgPerTick = 0,
+  doseVolumeMl = 0,
+}) {
+  const displayTicks = Math.min(Math.max(ticksNeeded || 0, 0), totalTicks);
+  const percentage = (displayTicks / totalTicks) * 100;
+
+  const majorTicks = [];
+  for (let i = 0; i <= totalTicks; i += 10) {
+    majorTicks.push(i);
+  }
+
+  return (
+    <div className="space-y-2">
+      <div className="flex justify-between items-center text-sm">
+        <span className="font-medium text-gray-700">{syringeVolume || 1} ml Syringe</span>
+        <span className="text-gray-500">
+          {Math.round(displayTicks)} / {totalTicks} ticks
+        </span>
+      </div>
+
+      <div className="relative w-full max-w-xs mx-auto h-64 bg-gray-50 rounded-lg overflow-hidden border-2 border-gray-300">
+        <div
+          className={`absolute bottom-0 left-0 right-0 transition-all duration-500 ease-out ${
+            warning ? 'bg-red-400/70' : 'bg-blue-400/70'
+          }`}
+          style={{ height: `${percentage}%` }}
+        />
+
+        <div className="absolute inset-0 flex flex-col justify-between px-2 py-2">
+          {majorTicks.map((tick) => {
+            const isActive = tick <= displayTicks;
+            return (
+              <div
+                key={tick}
+                className="relative flex items-center justify-between"
+                style={{ height: `${100 / majorTicks.length}%` }}
+              >
+                <div className={`w-4 h-0.5 ${isActive ? 'bg-blue-700' : 'bg-gray-300'}`} />
+                <span className={`text-xs font-mono ${isActive ? 'text-blue-700 font-semibold' : 'text-gray-400'}`} style={{ minWidth: '24px', textAlign: 'right' }}>
+                  {tick}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {displayTicks > 0 && !warning && (
+          <div
+            className="absolute left-0 right-0 flex items-center pointer-events-none"
+            style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
+          >
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 bg-red-500 rotate-45" />
+              <div className="w-6 h-0.5 bg-red-500" />
+            </div>
+            <div className="flex-1 h-0.5 bg-red-500 relative">
+              <div className="absolute -right-1 -top-1.5 w-3 h-3 bg-red-500 rotate-45" />
+            </div>
+            <div className="absolute -right-14 top-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded shadow">
+              {Math.round(displayTicks)}格
+            </div>
+          </div>
+        )}
+
+        <div className="absolute top-2 left-1/2 -translate-x-1/2">
+          <span className="text-[10px] font-medium text-gray-500 bg-white/80 px-2 py-0.5 rounded shadow-sm">
+            {syringeVolume || 1} ml
+          </span>
+        </div>
+
+        <div className="absolute bottom-2 right-2 text-xs font-medium text-gray-700 bg-white/80 px-2 py-0.5 rounded shadow-sm">
+          {((doseVolumeMl || 0) * 1000).toFixed(0)} μl
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between text-xs text-gray-500">
+        <div className="flex items-center gap-3">
+          <span className="flex items-center gap-1">
+            <span className="inline-block w-3 h-3 bg-blue-400 rounded opacity-75" />
+            Liquid {((doseVolumeMl || 0) * 1000).toFixed(0)} μl
+          </span>
+          <span className="flex items-center gap-1 text-red-500">
+            <span className="inline-block w-3 h-0.5 bg-red-500" />
+            Target {Math.round(displayTicks)} 格
+          </span>
+        </div>
+        <div className="font-medium text-gray-700">
+          每格 {(mcgPerTick || 0).toFixed(1)} mcg · 总剂量 {(displayTicks * (mcgPerTick || 0)).toFixed(0)} mcg
+        </div>
+      </div>
+    </div>
+  );
+}
