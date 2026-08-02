@@ -10,179 +10,208 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="container mx-auto px-4 py-12 max-w-5xl">
-            {/* 页面标题 */}
-            <div className="mb-10 text-center">
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                    About verifiedpeptides
-                </h1>
-                <div className="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full" />
-            </div>
-
-            {/* 公司简介 */}
-            <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                    verifiedpeptides is a premier supplier of high-purity research peptides
-                    for laboratory and scientific research. Founded with a commitment to
-                    quality and transparency, we provide researchers with reliable
-                    compounds that meet the highest standards of purity and consistency.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Our products undergo rigorous quality control testing, and each batch
-                    is accompanied by a comprehensive Certificate of Analysis (COA)
-                    detailing purity, weight, and other critical specifications. We believe
-                    that researchers deserve full transparency, which is why we make all
-                    COAS publicly available.
-                </p>
-            </div>
-
-            {/* 使命与愿景 */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                        <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                        <h2 className="text-xl font-bold text-gray-800">Our Mission</h2>
+        <div className="container mx-auto px-4 py-12 max-w-6xl">
+            <section className="overflow-hidden rounded-[2rem] shadow-2xl mb-12">
+                <div className="relative h-72 md:h-[30rem]">
+                    <Image
+                        src="/images/home/logo.svg"
+                        alt="verifiedpeptides research lab"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/65" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                        <span className="text-sm uppercase tracking-[0.35em] text-cyan-200 mb-4">
+                            High-purity research peptides
+                        </span>
+                        <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                            Trusted peptide quality for scientific research
+                        </h1>
+                        <p className="mt-4 max-w-3xl text-sm md:text-base text-slate-200">
+                            We support research labs with premium peptides, full Certificates of Analysis,
+                            and responsive scientific support for every order.
+                        </p>
+                        <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                            <Link
+                                href="/products"
+                                className="inline-flex items-center justify-center rounded-full bg-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-400"
+                            >
+                                Browse Products
+                            </Link>
+                            <Link
+                                href="/coas"
+                                className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
+                            >
+                                View COAs
+                            </Link>
+                        </div>
                     </div>
-                    <p className="text-gray-600 leading-relaxed">
-                        To accelerate scientific discovery by providing researchers worldwide
-                        with premium-quality peptides, backed by uncompromising quality
-                        control and transparent documentation.
+                </div>
+            </section>
+
+            <section className="grid gap-10 lg:grid-cols-[1.4fr_0.9fr] items-start">
+                <div>
+                    <div className="mb-6 inline-flex rounded-full bg-slate-100 px-4 py-1 text-sm font-semibold text-slate-700">
+                        About verifiedpeptides
+                    </div>
+                    <div className="space-y-6 text-gray-700">
+                        <p className="text-lg leading-relaxed">
+                            verifiedpeptides is a laboratory-focused supplier of high-purity research peptides for academic,
+                            biotech, and pharmaceutical research. Every batch is produced and tested to support scientific
+                            discovery with confidence.
+                        </p>
+                        <p className="leading-relaxed">
+                            We combine rigorous manufacturing standards with transparent documentation. Each peptide is
+                            accompanied by a full Certificate of Analysis (COA) that details purity, identity, and product
+                            specifications so researchers can evaluate materials quickly and reliably.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
+                    <h2 className="text-xl font-bold text-slate-900 mb-4">What sets us apart</h2>
+                    <ul className="space-y-4 text-gray-600">
+                        <li className="flex gap-3">
+                            <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                                ✓
+                            </span>
+                            <span>Purity guaranteed above 99% with batch-level COA reporting.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                                ✓
+                            </span>
+                            <span>Traceable sourcing and consistent quality across every shipment.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                                ✓
+                            </span>
+                            <span>Dedicated scientific support for product selection and application guidance.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                                ✓
+                            </span>
+                            <span>Full transparency with online COA access and clear product documentation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section className="mt-12 space-y-10">
+                <div className="mx-auto max-w-3xl text-center">
+                    <div className="inline-flex rounded-full bg-slate-100 px-4 py-1 text-sm font-semibold text-slate-700">
+                        Our mission & vision
+                    </div>
+                    <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+                            <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-lg font-semibold">
+                                M
+                            </div>
+                            <h2 className="text-xl font-semibold text-slate-900 mb-2">Our Mission</h2>
+                            <p className="text-sm leading-7 text-slate-600">
+                                Power scientific progress with premium peptides, meticulous quality checks, and crystal-clear analytical documentation.
+                            </p>
+                        </div>
+                        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+                            <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-lg font-semibold">
+                                V
+                            </div>
+                            <h2 className="text-xl font-semibold text-slate-900 mb-2">Our Vision</h2>
+                            <p className="text-sm leading-7 text-slate-600">
+                                Be the peptide partner researchers trust most for purity, transparency, and reliable scientific support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mx-auto max-w-5xl rounded-[2rem] border border-slate-200 bg-slate-50 p-10 shadow-xl">
+                    <div className="text-center">
+                        <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Why researchers choose verifiedpeptides</h2>
+                        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+                            Premium peptides with trusted COA transparency, dependable support, and fast delivery for every research need.
+                        </p>
+                    </div>
+
+                    <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                ✔️
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Verified purity</h3>
+                            <p className="text-sm text-slate-600">Every batch meets strict purity standards and includes a full COA.</p>
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                🧪
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Scientific support</h3>
+                            <p className="text-sm text-slate-600">Practical guidance from specialists to help you choose the right peptide.</p>
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                📄
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Transparent COAs</h3>
+                            <p className="text-sm text-slate-600">Full analytics are available online so every result is traceable.</p>
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                🚚
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Reliable delivery</h3>
+                            <p className="text-sm text-slate-600">Consistent shipping to labs across key research regions.</p>
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                📘
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Clear documentation</h3>
+                            <p className="text-sm text-slate-600">Easy-to-read product details make planning experiments faster.</p>
+                        </div>
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm text-center">
+                            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 text-xl">
+                                ⚡
+                            </div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Fast response</h3>
+                            <p className="text-sm text-slate-600">Quick answers and order handling for urgent research timelines.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="mt-12 rounded-[2rem] bg-gradient-to-r from-slate-900 via-slate-800 to-blue-700 p-10 text-white shadow-2xl">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-3xl font-bold mb-4">Committed to scientific excellence</h2>
+                    <p className="mx-auto max-w-3xl text-sm md:text-base leading-relaxed text-slate-200">
+                        verifiedpeptides delivers reliable research materials through strict quality control,
+                        consistent manufacturing standards, and transparent product information. Our goal is to
+                        give researchers confidence in every experiment.
                     </p>
-                </div>
-
-                <div className="bg-green-50 border border-green-100 rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                        <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        <h2 className="text-xl font-bold text-gray-800">Our Vision</h2>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                        To be the most trusted partner for research peptides, setting the
-                        industry standard for purity, reliability, and customer support in
-                        the life sciences community.
-                    </p>
-                </div>
-            </div>
-
-            {/* 核心价值 */}
-            <div className="mt-12">
-                <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
-                    Why Choose verifiedpeptides?
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Uncompromising Quality</h3>
-
-
-                        <p className="text-sm text-gray-600 mt-1">
-                            All products are tested for purity &gt;99% with full COAS disclosure.
-                        </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Global Reach</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                            Trusted by researchers across North America, Europe, and Asia.
-                        </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Expert Support</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                            Our scientific team is available to answer your research questions.
-                        </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Full Transparency</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                            All COAS published online — no hidden data, no surprises.
-                        </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Quality Assurance</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                            Products tested for endotoxins, sterility, and TFA content.
-                        </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 className="font-semibold text-gray-800">Fast Turnaround</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                            Quick shipping and responsive customer service for urgent needs.
-                        </p>
+                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link
+                            href="/products"
+                            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+                        >
+                            Browse Products
+                        </Link>
+                        <Link
+                            href="/coas"
+                            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+                        >
+                            View COAs
+                        </Link>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* 科研承诺 */}
-            <div className="mt-12 bg-gray-50 border border-gray-200 rounded-xl p-8 text-center">
-                <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                    Committed to Scientific Excellence
-                </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                    At verifiedpeptides, we understand the critical role that high-quality
-                    research materials play in advancing scientific knowledge. Every
-                    product we deliver is a promise — of purity, of consistency, and of our
-                    unwavering commitment to the research community.
-                </p>
-                <div className="mt-6 flex flex-wrap justify-center gap-4">
-                    <Link
-                        href="/products"
-                        className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                        Browse Products
-                    </Link>
-                    <Link
-                        href="/coas"
-                        className="inline-flex items-center px-5 py-2.5 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
-                    >
-                        View COAS
-                    </Link>
-                </div>
-            </div>
-
-            {/* 联系区块 */}
-            <div className="mt-8 text-center text-sm text-gray-500">
+            <div className="mt-8 text-center text-sm text-slate-500">
                 <p>
                     Have questions?{' '}
                     <a
-                        href="https://api.whatsapp.com/send?phone=85270460355&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
+                        href="https://api.whatsapp.com/send?phone=85251933716&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
