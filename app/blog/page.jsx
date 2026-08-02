@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Blog',
-  description: 'Read the latest research insights from Veritas Bio Labs.',
+  description: 'Read the latest research insights from verifiedpeptides.',
 };
 
 const POSTS_PER_PAGE = 6; // 每页显示 6 篇文章

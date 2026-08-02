@@ -8,14 +8,26 @@ export default function Pagination({ currentPage, totalPages }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  /**
+   * 生成分页 URL，保留所有现有查询参数（如 category）
+   */
   const createPageUrl = (pageNumber) => {
     const params = new URLSearchParams(searchParams?.toString() || '');
-    params.set('page', pageNumber);
+    // 如果是第一页，移除 page 参数（更干净的 URL）
+    if (pageNumber === 1) {
+      params.delete('page');
+    } else {
+      params.set('page', String(pageNumber));
+    }
     return `${pathname}?${params.toString()}`;
   };
 
+  /**
+   * 生成页码数组（带省略号）
+   * 例如: [1, 2, 3, '...', 8, 9, 10]
+   */
   const getPageNumbers = () => {
-    const delta = 2;
+    const delta = 2; // 当前页前后显示 2 页
     const range = [];
     const rangeWithDots = [];
     let l;
@@ -45,54 +57,79 @@ export default function Pagination({ currentPage, totalPages }) {
     return rangeWithDots;
   };
 
+  // 只有一页时不显示分页
   if (totalPages <= 1) return null;
 
+  const pageNumbers = getPageNumbers();
+
   return (
-    <div className="flex justify-center items-center space-x-2 mt-8">
+    <nav
+      className="flex justify-center items-center space-x-1.5 mt-8"
+      aria-label="Pagination"
+    >
+      {/* 上一页 */}
       <Link
         href={createPageUrl(currentPage - 1)}
-        className={`px-3 py-2 rounded border ${
+        aria-disabled={currentPage === 1}
+        className={`px-3.5 py-2 rounded-lg border text-sm font-medium transition-colors ${
           currentPage === 1
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed pointer-events-none'
-            : 'bg-white text-gray-700 hover:bg-gray-50'
+            : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-300 hover:border-gray-400'
         }`}
       >
-        &larr;
+        <span className="sr-only">Previous</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+        </svg>
       </Link>
 
-      {getPageNumbers().map((page, idx) => {
+      {/* 页码按钮 */}
+      {pageNumbers.map((page, idx) => {
         if (page === '...') {
           return (
-            <span key={`dots-${idx}`} className="px-3 py-2">
+            <span
+              key={`dots-${idx}`}
+              className="px-2 py-2 text-sm text-gray-400"
+              aria-hidden="true"
+            >
               …
             </span>
           );
         }
+
+        const isActive = page === currentPage;
+
         return (
           <Link
             key={page}
             href={createPageUrl(page)}
-            className={`px-4 py-2 rounded border ${
-              page === currentPage
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
+            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors min-w-[40px] text-center ${
+              isActive
+                ? 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700'
+                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400'
             }`}
+            aria-current={isActive ? 'page' : undefined}
           >
             {page}
           </Link>
         );
       })}
 
+      {/* 下一页 */}
       <Link
         href={createPageUrl(currentPage + 1)}
-        className={`px-3 py-2 rounded border ${
+        aria-disabled={currentPage === totalPages}
+        className={`px-3.5 py-2 rounded-lg border text-sm font-medium transition-colors ${
           currentPage === totalPages
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed pointer-events-none'
-            : 'bg-white text-gray-700 hover:bg-gray-50'
+            : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-300 hover:border-gray-400'
         }`}
       >
-        &rarr;
+        <span className="sr-only">Next</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+        </svg>
       </Link>
-    </div>
+    </nav>
   );
 }
