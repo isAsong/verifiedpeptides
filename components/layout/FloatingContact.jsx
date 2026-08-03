@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { WHATSAPP_MESSAGES, getWhatsAppLink, TELEGRAM_NUMBER } from '@/lib/config';
+import { WHATSAPP_MESSAGES, getWhatsAppLink, TELEGRAM_HANDLE } from '@/lib/config';
 
 // 默认联系人数据
 const defaultContacts = [
@@ -34,17 +34,16 @@ export default function FloatingContact({ contacts = defaultContacts }) {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  // 复制 Telegram 号码
+  // 复制 Telegram 账号
   const copyTelegramNumber = async () => {
-    const number = TELEGRAM_NUMBER || '85251933716';
-    const formattedNumber = `+${number}`;
+    const telegramHandle = TELEGRAM_HANDLE;
     try {
-      await navigator.clipboard.writeText(formattedNumber);
+      await navigator.clipboard.writeText(telegramHandle);
       setToastVisible(true);
       setTimeout(() => setToastVisible(false), 2000);
     } catch (err) {
       // 降级方案：提示用户手动复制
-      alert(`请复制号码: ${formattedNumber}`);
+      alert(`请复制 Telegram 账号: ${telegramHandle}`);
     }
   };
 
@@ -124,8 +123,8 @@ export default function FloatingContact({ contacts = defaultContacts }) {
       {/* Toast 提示 */}
       {toastVisible && (
         <div className="fixed bottom-28 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50 transition-opacity duration-300">
-          ✅ The number has been copied
-          : +{TELEGRAM_NUMBER || '85251933716'}
+          ✅ The Telegram account has been copied
+          : {TELEGRAM_HANDLE}
         </div>
       )}
     </div>
