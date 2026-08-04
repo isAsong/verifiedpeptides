@@ -4,6 +4,7 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { formatDate } from '@/lib/data/coas';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 const MONTH_GROUPS_PER_PAGE = 3;
 
@@ -199,7 +200,7 @@ export default function CoasClient({ initialMonthGroups }) {
         <p className="mt-1">
           Need a specific COA?{' '}
           <a
-            href="https://api.whatsapp.com/send?phone=85270460355&text=Hello%2C%20I%20need%20a%20specific%20COA"
+            href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%2C%20I%20need%20a%20specific%20COA`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"

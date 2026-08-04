@@ -2,14 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { WHATSAPP_MESSAGES, getWhatsAppLink, TELEGRAM_HANDLE } from '@/lib/config';
+import { WHATSAPP_MESSAGES, getWhatsAppLink, TELEGRAM_HANDLE, WHATSAPP_NUMBER } from '@/lib/config';
 
 // 默认联系人数据
 const defaultContacts = [
   {
     id: 1,
     name: 'Savannah | Verified Peptides',
-    phone: '85251933716',
+    phone: WHATSAPP_NUMBER,
     avatar: '/images/avatar/85294506791.png',
   },
 ];

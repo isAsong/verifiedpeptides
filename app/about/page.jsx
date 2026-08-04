@@ -1,6 +1,7 @@
 // app/about/page.jsx
 import Link from 'next/link';
 import Image from 'next/image';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 export const metadata = {
     title: 'About Us | verifiedpeptides',
@@ -211,7 +212,7 @@ export default function AboutPage() {
                 <p>
                     Have questions?{' '}
                     <a
-                        href="https://api.whatsapp.com/send?phone=85251933716&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs"
+                        href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"

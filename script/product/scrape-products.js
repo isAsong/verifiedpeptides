@@ -275,7 +275,7 @@ async function scrapeAll() {
                     testResults: Object.keys(detailData.testResults).length > 0 ? detailData.testResults : undefined,
                     productInfo: Object.keys(detailData.productInfo).length > 0 ? detailData.productInfo : undefined,
                     faqs: detailData.faqs.length > 0 ? detailData.faqs : undefined,
-                    whatsappNumber: '85270460355',
+                    whatsappNumber: '85251933716',
                     studyReference: detailData.studyReference || undefined,
                     bulkPricing: detailData.bulkPricing.length > 0 ? detailData.bulkPricing : undefined,
                 };
