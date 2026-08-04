@@ -3,7 +3,7 @@ import { getAllCoas, groupCoasByMonth } from '@/lib/data/coas';
 import CoasClient from './CoasClient';
 
 export const metadata = {
-  title: 'COAs | Veritas Bio Labs',
+  title: 'COAs | verifiedpeptides',
   description: 'Certificates of Analysis for our products.',
 };
 

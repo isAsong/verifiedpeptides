@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
     return { title: 'Product Not Found' };
   }
   return {
-    title: `${product.name} | Veritas Bio Labs`,
+    title: `${product.name} | verifiedpeptides`,
     description: product.description?.slice(0, 160) || '',
     openGraph: {
       title: product.name,

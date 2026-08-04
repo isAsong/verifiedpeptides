@@ -5,8 +5,8 @@ import FloatingContact from '@/components/layout/FloatingContact';
 
 export const metadata = {
   title: {
-    default: 'Veritas Bio Labs - Research Peptides',
-    template: '%s | Veritas Bio Labs',
+    default: 'verifiedpeptides - Research Peptides',
+    template: '%s | verifiedpeptides',
   },
   description: 'High-purity research peptides for laboratory use. Shop Tirzepatide, Retatrutide, Semaglutide and more.',
 };

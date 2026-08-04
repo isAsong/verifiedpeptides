@@ -212,7 +212,7 @@ export default function AboutPage() {
                 <p>
                     Have questions?{' '}
                     <a
-                        href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%2C%20I%20have%20a%20question%20about%20Veritas%20Bio%20Labs`}
+                        href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%2C%20I%20have%20a%20question%20about%20verifiedpeptides`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"

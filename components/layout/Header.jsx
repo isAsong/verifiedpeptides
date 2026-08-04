@@ -130,7 +130,7 @@ export default function Header() {
                 <Link href="/" className="flex items-center flex-none">
                     <img
                         src="/images/logo.jpg"
-                        alt="Veritas"
+                        alt="verifiedpeptides"
                         className="h-12 w-auto object-contain"
                     />
                 </Link>
@@ -257,7 +257,7 @@ export default function Header() {
                     <Link href="/" className="flex-shrink-0">
                         <img
                             src="/images/logo.jpg"
-                            alt="Veritas"
+                            alt="verifiedpeptides"
                             className="h-16 w-auto object-contain"
                         />
                     </Link>

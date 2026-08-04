@@ -4,7 +4,7 @@ import { getWhatsAppLink, WHATSAPP_NUMBER } from '@/lib/config';
 export default function ProductPurchase({ product }) {
     const { name } = product;
 
-    const whatsappLink = `${getWhatsAppLink(WHATSAPP_NUMBER)}&text=${encodeURIComponent(`Hello, I'm interested in ${name}.`)}`;
+    const whatsappLink = `${getWhatsAppLink(WHATSAPP_NUMBER)}&text=${encodeURIComponent(`Hello, I'm interested in ${name} from verifiedpeptides.`)}`;
 
     return (
         <div className="mt-6">
