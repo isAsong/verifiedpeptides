@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { WHATSAPP_NUMBER, getWhatsAppLink, WHATSAPP_MESSAGES } from '@/lib/config';
+import { WHATSAPP_NUMBER, getWhatsAppLink } from '@/lib/config';
 const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
@@ -236,7 +236,7 @@ export default function Header() {
                         <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-xl border border-blue-100/50">
                             <p className="text-xs text-gray-500 mb-2">Need help?</p>
                             <a
-                                href={getWhatsAppLink(WHATSAPP_MESSAGES.default)}
+                                href={getWhatsAppLink(WHATSAPP_NUMBER)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700 transition-colors"
