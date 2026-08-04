@@ -25,4 +25,4 @@ Recent studies have expanded understanding of GLP-1 receptor biology and peptide
 
 ### Research Applications
 
-At Veritas Bio Labs, we supply high-purity (>99%) research peptides with comprehensive analytical documentation. Each batch is tested to support laboratory research requiring reliable quality verification and consistent material characterization.
+At verifiedpeptides, we supply high-purity (>99%) research peptides with comprehensive analytical documentation. Each batch is tested to support laboratory research requiring reliable quality verification and consistent material characterization.

@@ -27,4 +27,4 @@ By combining multiple receptor activities within a single peptide structure, res
 
 ### Research Applications
 
-At Veritas Bio Labs, we provide research-grade peptides supported by analytical documentation including purity testing and quality verification. Our materials are designed for controlled laboratory investigations and scientific research programs.
+At verifiedpeptides, we provide research-grade peptides supported by analytical documentation including purity testing and quality verification. Our materials are designed for controlled laboratory investigations and scientific research programs.

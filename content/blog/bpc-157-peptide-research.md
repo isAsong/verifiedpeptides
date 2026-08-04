@@ -27,4 +27,4 @@ Current research focuses on understanding molecular properties, experimental mod
 
 ### Research Applications
 
-At Veritas Bio Labs, we provide high-purity research peptides with detailed analytical documentation. Each product is accompanied by quality information to support scientific experiments and laboratory research requirements.
+At verifiedpeptides, we provide high-purity research peptides with detailed analytical documentation. Each product is accompanied by quality information to support scientific experiments and laboratory research requirements.
