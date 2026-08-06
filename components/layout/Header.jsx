@@ -189,6 +189,7 @@ export default function Header() {
                         <button
                             onClick={closeMenu}
                             className="p-1.5 rounded-full hover:bg-gray-100 transition-colors"
+                            aria-label="Close menu"
                         >
                             <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -206,8 +207,8 @@ export default function Header() {
                                     href={item.href}
                                     onClick={closeMenu}
                                     className={`group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 mb-1 ${active
-                                            ? 'bg-blue-50 text-blue-600'
-                                            : 'text-gray-700 hover:bg-gray-50'
+                                        ? 'bg-blue-50 text-blue-600'
+                                        : 'text-gray-700 hover:bg-gray-50'
                                         }`}
                                     style={{
                                         opacity: isMenuOpen ? 1 : 0,
@@ -342,10 +343,10 @@ export default function Header() {
                                             <div className="flex items-start gap-3">
                                                 <span
                                                     className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${item.type === 'Product'
-                                                            ? 'bg-blue-100 text-blue-700'
-                                                            : item.type === 'Article'
-                                                                ? 'bg-purple-100 text-purple-700'
-                                                                : 'bg-green-100 text-green-700'
+                                                        ? 'bg-blue-100 text-blue-700'
+                                                        : item.type === 'Article'
+                                                            ? 'bg-purple-100 text-purple-700'
+                                                            : 'bg-green-100 text-green-700'
                                                         }`}
                                                 >
                                                     {item.type}

@@ -181,11 +181,18 @@ export default function HomePage() {
                 key={index}
                 className="group relative p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="text-4xl font-bold text-blue-500/20 group-hover:text-blue-500/40 transition-colors duration-300">
+                {/* 步骤数字 - 提高不透明度和亮度 */}
+                <div className="text-4xl font-bold text-blue-300/60 group-hover:text-blue-300/80 transition-colors duration-300">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold mt-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm mt-1">{item.desc}</p>
+                {/* 标题 - 添加白色，确保可见 */}
+                <h3 className="text-lg font-semibold text-white mt-2">
+                  {item.title}
+                </h3>
+                {/* 描述 - 提升对比度 */}
+                <p className="text-gray-300 text-sm mt-1">
+                  {item.desc}
+                </p>
                 <div className="absolute bottom-3 right-3 w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -303,7 +310,8 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Advance Your Research?
           </h2>
-          <p className="text-blue-200 max-w-xl mx-auto mb-8">
+          {/* 🔥 将描述文字改为更亮的 blue-100，增强对比度 */}
+          <p className="text-blue-100 max-w-xl mx-auto mb-8">
             Browse our catalog of high-purity research peptides with full
             transparency and third-party verification.
           </p>
@@ -316,7 +324,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
             >
               Contact Us
             </Link>

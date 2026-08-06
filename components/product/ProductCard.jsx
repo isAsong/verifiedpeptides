@@ -5,14 +5,12 @@ import Image from 'next/image';
 export default function ProductCard({ product }) {
   const { id, name, description, image, images, category, slug } = product;
 
-  // 取主图：优先 images[0]，其次 image，最后占位图
   const mainImage = images?.[0] || image || '/images/placeholder.jpg';
-  // 链接：使用 slug 构造
   const href = slug ? `/products/${slug}` : '#';
 
   return (
     <div className="group relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-      {/* 图片区域：统一尺寸 + 统一内边距，object-contain 完整展示不裁剪 */}
+      {/* 图片区域 */}
       <div className="relative aspect-square overflow-hidden bg-gray-50 border-b border-gray-100">
         <Link
           href={href}
@@ -41,14 +39,16 @@ export default function ProductCard({ product }) {
           {description}
         </p>
         <div className="mt-3 flex items-center justify-between">
+          {/* 🔥 优化点 1：链接文本包含产品名称 */}
           <Link
             href={href}
             className="inline-block px-3 py-1.5 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors"
           >
             View {name}
           </Link>
+          {/* 🔥 优化点 2：提高分类标签对比度 */}
           {category && (
-            <span className="text-[11px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] text-gray-700 bg-gray-200 px-2 py-0.5 rounded-full">
               {category}
             </span>
           )}
