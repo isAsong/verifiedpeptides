@@ -25,7 +25,7 @@ export async function generateMetadata({ searchParams }) {
       title: `Research Peptides ${page > 1 ? `- Page ${page}` : ''}`,
       description: `Discover premium research peptides including Tirzepatide, Retatrutide, Semaglutide and more. Rigorously tested, independently verified.${page > 1 ? ` Page ${page}.` : ''}`,
       alternates: {
-        canonical: `https://verifiedpeptides.com/products${page > 1 ? `?page=${page}` : ''}`,
+        canonical: `https://verifiedpeptides.vip/products${page > 1 ? `?page=${page}` : ''}`,
       },
     };
   }
@@ -38,7 +38,7 @@ export async function generateMetadata({ searchParams }) {
     title: `${categoryLabel} Research Peptides ${page > 1 ? `- Page ${page}` : ''}`,
     description: `Shop high-quality ${categoryLabel} research peptides for your lab. ${categoryCount} products available with full COAS and third-party testing.${page > 1 ? ` Page ${page}.` : ''}`,
     alternates: {
-      canonical: `https://verifiedpeptides.com/products?category=${encodeURIComponent(category)}${page > 1 ? `&page=${page}` : ''}`,
+      canonical: `https://verifiedpeptides.vip/products?category=${encodeURIComponent(category)}${page > 1 ? `&page=${page}` : ''}`,
     },
   };
 }
@@ -69,9 +69,9 @@ export default async function ProductsPage({ searchParams }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://verifiedpeptides.com' },
-      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://verifiedpeptides.com/products' },
-      ...(category ? [{ '@type': 'ListItem', position: 3, name: category, item: `https://verifiedpeptides.com/products?category=${encodeURIComponent(category)}` }] : []),
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://verifiedpeptides.vip' },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://verifiedpeptides.vip/products' },
+      ...(category ? [{ '@type': 'ListItem', position: 3, name: category, item: `https://verifiedpeptides.vip/products?category=${encodeURIComponent(category)}` }] : []),
     ],
   };
 
