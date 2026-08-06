@@ -126,16 +126,12 @@ export default function HomePage() {
       {/* ===== Trust Badges ===== */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
+    
+          <h2 className="sr-only">Why Choose Us - Trust Badges</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {trustBadges.map((badge, index) => (
-              <div
-                key={index}
-                className="group text-center p-6 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {badge.icon}
-                </div>
+              <div key={index} className="...">
+                <div className="text-4xl mb-3">{badge.icon}</div>
                 <h3 className="font-semibold text-gray-800">{badge.label}</h3>
                 <p className="text-sm text-gray-500 mt-1">{badge.desc}</p>
               </div>
@@ -152,7 +148,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-1">Featured Products</h2>
           </div>
           <Link href="/products" className="group text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-            View All
+            View All Products
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
@@ -244,7 +240,7 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-1">Latest Research Insights</h2>
             </div>
             <Link href="/blog" className="group text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-              View All
+              View All Articles
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
