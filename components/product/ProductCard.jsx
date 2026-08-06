@@ -45,7 +45,7 @@ export default function ProductCard({ product }) {
             href={href}
             className="inline-block px-3 py-1.5 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors"
           >
-            Read More
+            View {name}
           </Link>
           {category && (
             <span className="text-[11px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
