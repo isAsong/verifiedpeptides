@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { getAllCategories, getPostsByCategory } from '@/lib/posts';
 import CategoryFilter from '@/components/common/CategoryFilter';
 import Pagination from '@/components/common/Pagination';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
@@ -55,7 +56,15 @@ export default async function BlogPage({ searchParams }) {
             {paginatedPosts.map((post) => (
               <article key={post.slug} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
                 {post.image && (
-                  <img src={post.image} alt={post.title} className="w-full h-48 object-cover rounded-md mb-4" />
+                  <div className="relative w-full h-48 mb-4">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover rounded-md"
+                    />
+                  </div>
                 )}
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-xl font-semibold text-blue-600 hover:underline">{post.title}</h2>

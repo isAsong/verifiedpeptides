@@ -115,6 +115,7 @@ export default function CoasClient({ initialMonthGroups }) {
                               src={imagePath}
                               alt={`COA for ${coa.productName}`}
                               fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
                               className="object-contain hover:scale-105 transition-transform"
                             />
                             <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -220,10 +221,12 @@ export default function CoasClient({ initialMonthGroups }) {
             className="relative max-w-4xl max-h-[90vh] w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src={previewImage}
               alt="COA Preview"
-              className="w-full h-full object-contain"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-contain"
             />
             <button
               onClick={closePreview}

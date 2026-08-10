@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
       <div className="relative aspect-square overflow-hidden bg-gray-50 border-b border-gray-100">
         <Link
           href={href}
-          className="block w-full h-full hover:text-blue-600 transition-colors"
+          className="relative block w-full h-full hover:text-blue-600 transition-colors"
           aria-label={name}
         >
           <Image

@@ -1,6 +1,7 @@
 // app/blog/[slug]/page.js
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { getPostBySlug } from '@/lib/posts';
+import Image from 'next/image';
 import Link from 'next/link';
 
 // 生成页面元数据（SEO）
@@ -34,6 +35,11 @@ export default async function ArticleDetailPage({ params }) {
     notFound();
   }
 
+  // 规范化 slug：非文件名 slug 301 到文件名 slug，避免重复内容
+  if (post.slug !== slug) {
+    permanentRedirect(`/blog/${post.slug}`);
+  }
+
   return (
     <div className="container mx-auto px-4 py-10 max-w-3xl">
       <Link href="/blog" className="inline-block mb-6 text-blue-600 hover:underline">
@@ -55,7 +61,16 @@ export default async function ArticleDetailPage({ params }) {
 
         {/* 特色图片 */}
         {post.image && (
-          <img src={post.image} alt={post.title} className="w-full rounded-lg shadow-md mb-8" />
+          <div className="relative w-full aspect-[16/9] rounded-lg shadow-md mb-8 overflow-hidden">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-contain"
+              priority
+            />
+          </div>
         )}
 
         {/* 文章正文（从 Markdown 解析的 HTML） */}

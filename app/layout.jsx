@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import FloatingContact from '@/components/layout/FloatingContact';
 
 export const metadata = {
+  metadataBase: new URL('https://verifiedpeptides.vip'),
   title: {
     default: 'verifiedpeptides - Research Peptides',
     template: '%s | verifiedpeptides',

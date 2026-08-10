@@ -31,7 +31,6 @@ export default async function ProductDetailPage({ params }) {
     notFound();
   }
 
-  const images = product.images?.length > 0 ? product.images : [product.image];
   // 获取第一条 FAQ（如果有）
   const firstFaq = product.faqs && product.faqs.length > 0 ? product.faqs[0] : null;
 

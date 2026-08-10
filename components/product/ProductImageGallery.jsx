@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 export default function ProductImageGallery({ images, productName, autoPlayInterval = 3000 }) {
@@ -12,23 +12,14 @@ export default function ProductImageGallery({ images, productName, autoPlayInter
 
   const validImages = Array.isArray(images) && images.length > 0 ? images : [];
 
-  if (validImages.length === 0) {
-
-    return (
-      <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <div className="w-full h-full flex items-center justify-center text-gray-400">No image</div>
-      </div>
-    );
-  }
-
-  const goTo = (index) => {
+  const goTo = useCallback((index) => {
     const total = validImages.length;
     let newIndex = index;
     if (newIndex < 0) newIndex = total - 1;
     if (newIndex >= total) newIndex = 0;
 
     setSelectedIndex(newIndex);
-  };
+  }, [validImages.length]);
 
   const next = () => {
 
@@ -50,14 +41,21 @@ export default function ProductImageGallery({ images, productName, autoPlayInter
   useEffect(() => {
     if (isPlaying && validImages.length > 1) {
       timerRef.current = setInterval(() => {
-   
         goTo(selectedIndex + 1);
       }, autoPlayInterval);
     } else {
       clearInterval(timerRef.current);
     }
     return () => clearInterval(timerRef.current);
-  }, [isPlaying, selectedIndex, autoPlayInterval, validImages.length]);
+  }, [isPlaying, selectedIndex, autoPlayInterval, validImages.length, goTo]);
+
+  if (validImages.length === 0) {
+    return (
+      <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+        <div className="w-full h-full flex items-center justify-center text-gray-400">No image</div>
+      </div>
+    );
+  }
 
   const currentImage = validImages[selectedIndex] || validImages[0];
 
@@ -79,6 +77,7 @@ export default function ProductImageGallery({ images, productName, autoPlayInter
           src={currentImage}
           alt={productName || 'Product'}
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-contain"
           priority
         />
@@ -149,7 +148,7 @@ export default function ProductImageGallery({ images, productName, autoPlayInter
                 }`}
                 aria-label={`缩略图 ${idx+1}`}
               >
-                <Image src={imgSrc} alt={`缩略图 ${idx+1}`} fill className="object-cover pointer-events-none" />
+                <Image src={imgSrc} alt={`缩略图 ${idx+1}`} fill sizes="80px" className="object-cover pointer-events-none" />
               </button>
             );
           })}

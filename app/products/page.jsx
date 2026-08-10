@@ -15,10 +15,6 @@ export async function generateMetadata({ searchParams }) {
   const category = params?.category || '';
   const page = parseInt(params?.page) || 1;
 
-  // 基础配置
-  const baseTitle = 'Research Peptides | verifiedpeptides';
-  const baseDescription = 'Browse our catalog of high-purity research peptides for laboratory and scientific research. All products come with Certificates of Analysis (COAS).';
-
   // 如果是首页（无分类筛选）
   if (!category) {
     return {

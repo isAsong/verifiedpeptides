@@ -15,7 +15,7 @@ export default function AboutPage() {
             <section className="overflow-hidden rounded-[2rem] shadow-2xl mb-12">
                 <div className="relative h-72 md:h-[30rem]">
                     <Image
-                        src="/images/home/logo.svg"
+                        src="/images/banner-home.png"
                         alt="verifiedpeptides research lab"
                         fill
                         className="object-cover"

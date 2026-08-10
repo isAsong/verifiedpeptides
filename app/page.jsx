@@ -56,6 +56,7 @@ export default function HomePage() {
           src="/images/banner-home.png"
           alt="verifiedpeptides - Research Peptides"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

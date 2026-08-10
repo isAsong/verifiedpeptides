@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { WHATSAPP_NUMBER, getWhatsAppLink } from '@/lib/config';
@@ -18,7 +19,6 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
     const [allData, setAllData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const searchRef = useRef(null);
@@ -34,7 +34,6 @@ export default function Header() {
     // 加载可搜索数据
     useEffect(() => {
         if (isSearchOpen && allData.length === 0) {
-            setIsLoading(true);
             fetch('/api/search')
                 .then((res) => res.json())
                 .then((data) => {
@@ -45,22 +44,30 @@ export default function Header() {
         }
     }, [isSearchOpen, allData.length]);
 
-    // 搜索过滤
-    useEffect(() => {
-        if (!searchQuery.trim()) {
-            setSearchResults([]);
-            return;
-        }
+    // 搜索过滤（渲染时派生，搜索词变化自动更新结果）
+    const searchResults = useMemo(() => {
+        if (!searchQuery.trim()) return [];
         const q = searchQuery.toLowerCase().trim();
-        const filtered = allData.filter((item) => {
+        return allData.filter((item) => {
             return (
                 item.title.toLowerCase().includes(q) ||
                 item.excerpt.toLowerCase().includes(q) ||
                 (item.category && item.category.toLowerCase().includes(q))
             );
         });
-        setSearchResults(filtered);
     }, [searchQuery, allData]);
+
+    // 搜索框操作
+    const openSearch = () => {
+        setIsSearchOpen(true);
+        if (allData.length === 0) setIsLoading(true);
+        setTimeout(() => inputRef.current?.focus(), 50);
+    };
+
+    const closeSearch = () => {
+        setIsSearchOpen(false);
+        setSearchQuery('');
+    };
 
     // 点击外部关闭搜索
     useEffect(() => {
@@ -102,18 +109,6 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
-    const openSearch = () => {
-        console.log('Search icon clicked');
-        setIsSearchOpen(true);
-        setTimeout(() => inputRef.current?.focus(), 50);
-    };
-
-    const closeSearch = () => {
-        setIsSearchOpen(false);
-        setSearchQuery('');
-        setSearchResults([]);
-    };
-
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
@@ -128,9 +123,11 @@ export default function Header() {
             {/* ===== Mobile Header ===== */}
             <div className="md:hidden flex items-center justify-between border-b border-slate-200 bg-white/90 backdrop-blur-sm px-4 py-2.5 sticky top-0 z-30">
                 <Link href="/" className="flex items-center flex-none">
-                    <img
+                    <Image
                         src="/images/logo.jpg"
                         alt="verifiedpeptides"
+                        width={1397}
+                        height={1280}
                         className="h-12 w-auto object-contain"
                     />
                 </Link>
@@ -257,9 +254,11 @@ export default function Header() {
             <div className="hidden md:block border-b border-slate-200 bg-white">
                 <div className="container mx-auto flex items-center justify-between px-4 py-3">
                     <Link href="/" className="flex-shrink-0">
-                        <img
+                        <Image
                             src="/images/logo.jpg"
                             alt="verifiedpeptides"
+                            width={1397}
+                            height={1280}
                             className="h-16 w-auto object-contain"
                         />
                     </Link>

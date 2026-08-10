@@ -28,9 +28,6 @@ if (!fs.existsSync(MANIFEST_PATH)) {
 }
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 
-// 串行下载，避免内存溢出
-const CONCURRENCY = 1;
-
 async function downloadAll() {
   const browser = await puppeteer.launch({
     executablePath: chromeExecutable,
@@ -100,7 +97,7 @@ async function downloadAll() {
     }
 
     // 释放可能的缓存
-    global.gc && global.gc();
+    if (global.gc) global.gc();
   }
 
   await browser.close();

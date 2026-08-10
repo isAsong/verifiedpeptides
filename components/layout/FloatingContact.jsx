@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { WHATSAPP_MESSAGES, getWhatsAppLink, TELEGRAM_HANDLE, WHATSAPP_NUMBER } from '@/lib/config';
+import { getWhatsAppLink, TELEGRAM_HANDLE, WHATSAPP_NUMBER } from '@/lib/config';
 
 // 默认联系人数据
 const defaultContacts = [
@@ -41,7 +41,7 @@ export default function FloatingContact({ contacts = defaultContacts }) {
       await navigator.clipboard.writeText(telegramHandle);
       setToastVisible(true);
       setTimeout(() => setToastVisible(false), 2000);
-    } catch (err) {
+    } catch {
       // 降级方案：提示用户手动复制
       alert(`请复制 Telegram 账号: ${telegramHandle}`);
     }

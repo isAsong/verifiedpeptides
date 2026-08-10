@@ -1,7 +1,7 @@
 // app/calculator/CalculatorClient.jsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { getWhatsAppLink, WHATSAPP_NUMBER } from '@/lib/config';
 
 export default function CalculatorClient() {
@@ -11,33 +11,23 @@ export default function CalculatorClient() {
   const [bacteriostaticWater, setBacteriostaticWater] = useState(2); // ml
   const [desiredDose, setDesiredDose] = useState(250); // mcg
 
-  // --- 计算结果状态 ---
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState('');
-
   // 注射器总格数（标准胰岛素注射器为 100 格）
   const TOTAL_TICKS = 100;
 
-  // --- 计算逻辑 ---
-  const calculate = () => {
-    setError('');
-
+  // --- 计算逻辑（渲染时派生，参数变化自动重新计算） ---
+  const { result, error } = useMemo(() => {
     // 输入验证
     if (!syringeVolume || syringeVolume <= 0) {
-      setError('Please enter a valid syringe volume.');
-      return;
+      return { result: null, error: 'Please enter a valid syringe volume.' };
     }
     if (!vialQuantity || vialQuantity <= 0) {
-      setError('Please enter a valid peptide vial quantity.');
-      return;
+      return { result: null, error: 'Please enter a valid peptide vial quantity.' };
     }
     if (!bacteriostaticWater || bacteriostaticWater <= 0) {
-      setError('Please enter a valid amount of bacteriostatic water.');
-      return;
+      return { result: null, error: 'Please enter a valid amount of bacteriostatic water.' };
     }
     if (!desiredDose || desiredDose <= 0) {
-      setError('Please enter a valid desired dose.');
-      return;
+      return { result: null, error: 'Please enter a valid desired dose.' };
     }
 
     // 1. 总肽量 (mcg)
@@ -67,23 +57,21 @@ export default function CalculatorClient() {
     // 9. 限制最大显示刻度（不超过 100 格）
     const displayTicks = Math.min(ticksNeeded, TOTAL_TICKS);
 
-    setResult({
-      concentration, // mcg/ml
-      doseVolumeMl,
-      ticksNeeded,
-      displayTicks,
-      mcgPerTick,
-      warning,
-      syringeCapacityMl,
-      totalPeptideMcg,
-      totalWaterMl: bacteriostaticWater,
-      volumePerTick,
-    });
-  };
-
-  // --- 自动计算（参数变化时重新计算） ---
-  useEffect(() => {
-    calculate();
+    return {
+      result: {
+        concentration, // mcg/ml
+        doseVolumeMl,
+        ticksNeeded,
+        displayTicks,
+        mcgPerTick,
+        warning,
+        syringeCapacityMl,
+        totalPeptideMcg,
+        totalWaterMl: bacteriostaticWater,
+        volumePerTick,
+      },
+      error: '',
+    };
   }, [syringeVolume, vialQuantity, bacteriostaticWater, desiredDose]);
 
   // --- 重置表单 ---
@@ -92,8 +80,6 @@ export default function CalculatorClient() {
     setVialQuantity(5);
     setBacteriostaticWater(2);
     setDesiredDose(250);
-    setResult(null);
-    setError('');
   };
 
   // --- WhatsApp 链接 ---
@@ -117,7 +103,7 @@ export default function CalculatorClient() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">Enter Your Parameters</h2>
 
-            <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-4">
+            <form onSubmit={(e) => { e.preventDefault(); }} className="space-y-4">
               {/* 注射器容量 */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
