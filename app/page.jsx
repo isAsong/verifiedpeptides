@@ -130,7 +130,7 @@ export default function HomePage() {
           <h2 className="sr-only">Why Choose Us - Trust Badges</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {trustBadges.map((badge, index) => (
-              <div key={index} className="...">
+              <div key={index} className="text-center">
                 <div className="text-4xl mb-3">{badge.icon}</div>
                 <h3 className="font-semibold text-gray-800">{badge.label}</h3>
                 <p className="text-sm text-gray-500 mt-1">{badge.desc}</p>
@@ -216,7 +216,7 @@ export default function HomePage() {
               >
                 {/* 引用图标 */}
                 <div className="text-4xl text-blue-400/30 group-hover:text-blue-400/50 transition-colors duration-300">
-                  "
+                  &quot;
                 </div>
                 <p className="text-gray-700 leading-relaxed mt-2">
                   {testimonial.quote}
@@ -257,6 +257,7 @@ export default function HomePage() {
                       src={post.image}
                       alt={post.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
