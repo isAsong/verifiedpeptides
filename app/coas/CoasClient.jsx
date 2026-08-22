@@ -5,6 +5,7 @@ import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { formatDate } from '@/lib/data/coas';
 import { WHATSAPP_NUMBER } from '@/lib/config';
+import { trackContact } from '@/lib/metaPixel';
 
 const MONTH_GROUPS_PER_PAGE = 3;
 
@@ -204,6 +205,7 @@ export default function CoasClient({ initialMonthGroups }) {
             href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%2C%20I%20need%20a%20specific%20COA`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackContact()}
             className="text-blue-600 hover:underline"
           >
             Contact us on WhatsApp

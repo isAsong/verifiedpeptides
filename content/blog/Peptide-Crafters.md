@@ -1,7 +1,7 @@
 ---
 
 title: 'Peptide Crafters: Exploring Peptide Synthesis, Research, and Molecular Science'
-slug: 'Peptide Crafters'
+slug: 'Peptide-Crafters'
 category: 'Peptide-Crafters'
 tags: ['Peptide Crafters', 'Peptide Synthesis', 'Research Peptides', 'Molecular Biology']
 publishedAt: '2026-08-10'

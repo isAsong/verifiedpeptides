@@ -1,6 +1,6 @@
 ---
 title: 'Peptide Molecular Biology: Definitions, Classifications, and Cellular Functions'
-slug: 'peptide-molecular-biology-definition-classification'
+slug: 'What-is-a-peptide'
 category: 'Molecular Biology'
 tags: ['Peptide Science', 'Cell Biology', 'Molecular Biology', 'Peptide Applications']
 publishedAt: '2026-08-06'
