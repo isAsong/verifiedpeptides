@@ -39,7 +39,7 @@ export default function Footer() {
                 <div>
                   <p className="font-semibold text-slate-900">Contact</p>
                   <a href="mailto:support@verifiedpeptides.vip" className="hover:text-blue-600 transition-colors">
-                    support@verifiedpeptides.vip
+                    ababy1blue@gmail.com
                   </a>
                 </div>
               </div>
