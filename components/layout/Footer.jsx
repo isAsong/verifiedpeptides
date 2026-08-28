@@ -75,7 +75,7 @@ export default function Footer() {
               Contact our team for investor relations and corporate information.
             </p>
             <a href="mailto:support@verifiedpeptides.vip" className="mt-4 inline-flex text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">
-              support@verifiedpeptides.vip
+              ababy1blue@gmail.com
             </a>
           </div>
         </div>
