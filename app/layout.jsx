@@ -40,9 +40,15 @@ export default function RootLayout({ children }) {
             fbq('track', 'PageView');
           `}
         </Script>
-        <noscript>< img height="1" width="1" style="display:none"
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=1886834652486700&ev=PageView&noscript=1"
-        /></noscript>
+            alt=""
+          />
+        </noscript>
         {/* ===== End Meta Pixel Code ===== */}
       </body>
     </html>
