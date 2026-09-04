@@ -36,20 +36,13 @@ export default function RootLayout({ children }) {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${META_PIXEL_ID}');
+            fbq('init', '1886834652486700');
             fbq('track', 'PageView');
           `}
         </Script>
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element -- noscript 内必须使用原生 img */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            alt=""
-            src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1"
-          />
-        </noscript>
+        <noscript>< img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1886834652486700&ev=PageView&noscript=1"
+        /></noscript>
         {/* ===== End Meta Pixel Code ===== */}
       </body>
     </html>
